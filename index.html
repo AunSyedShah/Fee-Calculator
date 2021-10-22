@@ -14,9 +14,31 @@
 </head>
 
 <body>
+    <script>
+        function calculateFee() {
+            let noOfSubjects = Number(document.getElementById("noOfSubjects").value);
+            if (noOfSubjects >= 1 && noOfSubjects <= 7) {
+                const perCreditHour = 750;
+                const noOfCreditHOurs = 3;
+                const perCourseFee = noOfCreditHOurs * perCreditHour;
+                const bankCharges = 100;
+                const semesterEnrollmentFee = 1000;
+                const grossCourseFee = perCourseFee * noOfSubjects;
+                console.log(grossCourseFee);
+                const totalCoursesFee = grossCourseFee + bankCharges + semesterEnrollmentFee;
+                const message = `You need to pay Rupees <b>${totalCoursesFee}</b> for this semester.`
+                document.getElementById("totalFee").innerHTML = message;
+            }
+            else {
+                document.getElementById("totalFee").innerHTML = "Subjects Range should be in between 1 - 7";
+            }
+        }
+    </script>
     <div class="container">
         <label for="noOfSubjects">Number of Subjects</label>
         <input type="number" name="" id="noOfSubjects">
+        <button onclick="calculateFee()">Calculate Fee</button>
+        <p id="totalFee"></p>
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
