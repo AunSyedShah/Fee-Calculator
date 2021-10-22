@@ -21,33 +21,64 @@
                 const perCreditHour = 750;
                 const noOfCreditHOurs = 3;
                 const perCourseFee = noOfCreditHOurs * perCreditHour;
-                document.getElementById("perCourseFee").innerHTML = `+${perCourseFee}`;
-                const bankCharges = 100;
-                document.getElementById("bankCharges").innerHTML = `+${bankCharges}`;
-                const semesterEnrollmentFee = 1000;
-                document.getElementById("semesterEnrollmentFee").innerHTML = `+${semesterEnrollmentFee}`;
+                document.getElementById("perCourseFee").innerHTML = `${perCourseFee}`;
                 const grossCourseFee = perCourseFee * noOfSubjects;
-                document.getElementById("grossCourseFee").innerHTML = `+${grossCourseFee}`;
-                const totalCoursesFee = grossCourseFee + bankCharges + semesterEnrollmentFee;
-                const message = `You need to pay Rupees <b>${totalCoursesFee}</b> for this semester.`
-                document.getElementById("totalFee").innerHTML = message;
+                document.getElementById("totalCoursesFee").innerHTML = `${perCourseFee} x ${noOfSubjects} = ${grossCourseFee}`;
+                const bankCharges = 100;
+                document.getElementById("bankCharges").innerHTML = `${bankCharges}`;
+                const semesterEnrollmentFee = 1000;
+                document.getElementById("semesterEnrollmentFee").innerHTML = `${semesterEnrollmentFee}`;
+                const totalFee = grossCourseFee + bankCharges + semesterEnrollmentFee;
+                const message = `You need to pay Rupees <b>${totalFee}</b> for this semester.`
+                document.getElementById("totalFee").innerHTML = totalFee;
+                document.getElementById("totalFee").className = "alert alert-primary";
             }
             else {
-                document.getElementById("totalFee").innerHTML = "Subjects Range should be in between 1 - 7";
+                document.getElementById("totalFee").className = "alert alert-danger";
+                document.getElementById("totalFee").innerHTML = "Please enter a number between 1 and 7";
             }
         }
     </script>
     <div class="container">
         <label for="noOfSubjects">Number of Subjects</label>
         <input type="number" name="" id="noOfSubjects">
-        <button onclick="calculateFee()">Calculate Fee</button>
-        <h3>Calculation Details</h3>
-        <p id="perCourseFee"></p>
-        <p id="semesterEnrollmentFee"></p>
-        <p id="bankCharges"></p>
-        <p id="grossCourseFee"></p>
-        <p>========================</p>
-        <p id="totalFee"></p>
+        <button type="button" class="btn btn-primary" onclick="calculateFee()">Primary</button>
+
+        <h3>Fee Distribution</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Per Course Fee</th>
+                    <td id="perCourseFee"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Total Courses Fee</th>
+                    <td id="totalCoursesFee"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Bank Charges</th>
+                    <td id="bankCharges"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Semester Enrolment Fee</th>
+                    <td id="semesterEnrollmentFee"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Total Fee</th>
+                    <td>
+                        <div class="alert alert-primary" role="alert" id="totalFee">
+                            0
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
