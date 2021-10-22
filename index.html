@@ -21,10 +21,13 @@
                 const perCreditHour = 750;
                 const noOfCreditHOurs = 3;
                 const perCourseFee = noOfCreditHOurs * perCreditHour;
+                document.getElementById("perCourseFee").innerHTML = `+${perCourseFee}`;
                 const bankCharges = 100;
+                document.getElementById("bankCharges").innerHTML = `+${bankCharges}`;
                 const semesterEnrollmentFee = 1000;
+                document.getElementById("semesterEnrollmentFee").innerHTML = `+${semesterEnrollmentFee}`;
                 const grossCourseFee = perCourseFee * noOfSubjects;
-                console.log(grossCourseFee);
+                document.getElementById("grossCourseFee").innerHTML = `+${grossCourseFee}`;
                 const totalCoursesFee = grossCourseFee + bankCharges + semesterEnrollmentFee;
                 const message = `You need to pay Rupees <b>${totalCoursesFee}</b> for this semester.`
                 document.getElementById("totalFee").innerHTML = message;
@@ -38,6 +41,12 @@
         <label for="noOfSubjects">Number of Subjects</label>
         <input type="number" name="" id="noOfSubjects">
         <button onclick="calculateFee()">Calculate Fee</button>
+        <h3>Calculation Details</h3>
+        <p id="perCourseFee"></p>
+        <p id="semesterEnrollmentFee"></p>
+        <p id="bankCharges"></p>
+        <p id="grossCourseFee"></p>
+        <p>========================</p>
         <p id="totalFee"></p>
     </div>
 
