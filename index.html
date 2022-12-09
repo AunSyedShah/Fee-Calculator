@@ -17,7 +17,7 @@
         function calculateFee() {
             let noOfSubjects = Number(document.getElementById("noOfSubjects").value);
             if (noOfSubjects >= 1 && noOfSubjects <= 7) {
-                const perCreditHour = 750;
+                const perCreditHour = 850;
                 const noOfCreditHOurs = 3;
                 const perCourseFee = noOfCreditHOurs * perCreditHour;
                 document.getElementById("perCourseFee").innerHTML = `${perCourseFee}`;
